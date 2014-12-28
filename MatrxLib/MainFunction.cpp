@@ -1,4 +1,6 @@
 #include "Matrix.h"
+#include "FileUtils/FileUtils.h"
+#include "MatrixFileUtils.h"
 int main()
 {
 	////double p[]={5,1,-3,1,6,1,-3,1,7};
@@ -29,8 +31,16 @@ int main()
 	//mat1.ScenseShow("mat 1 result in main");
 	//mat2.ScenseShow("mat 2 result in main");
 
-	CMatrix mat1=CMatrix(1,8);
+	CMatrix mat1=CMatrix(40000,3);
 	CMatrix mat2=CMatrix(1,3);
-	mat1.ScenseShow("mat1");
-	mat1.Convolution(mat2);
+	//mat1.ScenseShow("mat1");
+	//mat1.Convolution(mat2);
+	FileUtils fileutils("G:\\Test1.csv");
+	//bool result=fileutils.CreateOrOpenFile_ForWrite(FileUtils::openmode::Override);
+	MatrixFileUtils t(mat1);
+	//fileutils.Print(&t);
+	bool r=fileutils.OpenFile_ForRead();
+	fileutils.Scan(&t);
+	t.getCMatrix().ScenseShow("eeeee");
+
 }

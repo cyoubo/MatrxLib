@@ -751,7 +751,7 @@ CMatrix& CMatrix::operator=(CMatrix matrix)
 {
 	if(&matrix!=this)
 	{
-		delete[] This.mElement;
+		//delete[] This.mElement;
 	
 		mElement=new double[matrix.mCol*matrix.mRow];
 		for(int i=0;i<matrix.mCol*matrix.mRow;i++)

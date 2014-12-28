@@ -1,0 +1,15 @@
+FileUtils 用于完成简单的文件输入输出
+ArrayOuter 用于完成字符数组的输出的实体
+
+1.要利用FileUtils指定对象的输出，则输出对象需要继承BaseOuterListener类并实现其纯虚函数bool print(std::ofstream &out)
+2.在实现print函数时，需要最后手工调用out.close()方法用于关闭输出流
+
+3.要利用FileUtils指定对象的读入，则输出对象需要继承BaseInputListener类并实现其纯虚函数bool scan(std::ifstream &input)
+4.在实现print函数时，需要最后手工调用out.close()方法用于关闭输出流
+
+5.FileUtils对象在使用时遵循
+ 1.通过路径创建对象
+ 2.根据读写情况选择OpenOrCreateFile_ForWrite与OpenFile_ForRead()将对象与文件进行关联
+ 3.编辑用于输出、输入操作的类对象
+ 4.调用scan或print
+ 5.调用close关闭

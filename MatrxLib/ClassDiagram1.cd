@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="AbstructAdjustment">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAQAAAAAAAARAJoAAAAACAAABAAACACAFRUIAA=</HashCode>
+      <FileName>AbstructAdjustment.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IndirectionAdjustment">
+    <Position X="1.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAACUAABACIAAAABEAAAA=</HashCode>
+      <FileName>IndirectionAdjustment.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConditionAdjustment">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAEAAAAAAAAAEAAAACAAEEAAgAAAIAAIAAA=</HashCode>
+      <FileName>ConditionAdjustment.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMatrix">
+    <Position X="7.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>EACBAEMQAgAIgoCAEyARgAAAAUAAAhBA8UApoQCAIAA=</HashCode>
+      <FileName>Matrix.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="SolveMethod" Collapsed="true">
+    <Position X="1" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Matrix.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

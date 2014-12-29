@@ -565,7 +565,6 @@ bool CMatrix::QR_Decomposition(CMatrix& Q,CMatrix& R)
 	//0.4 确定循环次数 length=min（mRow-1,mCol）
 	int length=(R.mRow==R.mCol)?this->mRow-1:this->mCol;
 	
-
 	//////////////////////////////////////////////////////////////////////////
 	//1 QR分解实际操作
 	//////////////////////////////////////////////////////////////////////////
@@ -700,7 +699,8 @@ CMatrix CMatrix::Convolution(CMatrix &nuclear,bool IgnoreBound/* =true */)
 {
 	CMatrix result(this->mRow-(nuclear.mRow/2)*2,this->mCol-(nuclear.mCol/2)*2);
 	
-	int index,k=0,count=nuclear.mRow*nuclear.mCol;
+	int index,k=0;
+	double count=nuclear.sum();
 	double sum=0;
 	for(int i=0;i<=this->mRow-nuclear.mRow;i++)
 	{
@@ -715,7 +715,7 @@ CMatrix CMatrix::Convolution(CMatrix &nuclear,bool IgnoreBound/* =true */)
 					sum+=this->mElement[index+p*this->mCol+q]*nuclear(p,q);
 				}
 			}
-			result.mElement[k++]=sum/count;	
+			result.mElement[k++]=sum;	
 		}
 	}
 	return result;
@@ -938,4 +938,13 @@ int CMatrix::sign(double e,double eps/* =0.000001 */)
 		return -1;
 	else 
 		return 1;
+}
+
+double CMatrix::sum()
+{
+	double sum=0.0;
+	for(int i=0;i<mRow*mCol;i++)
+		sum+=this->mElement[i];
+	return sum;
+
 }

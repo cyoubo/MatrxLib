@@ -62,6 +62,9 @@ bool MatrixFileUtils::scan(std::ifstream &input)
 		input>>row;
 		input.ignore(1,'-');
 		input>>col;
+
+		row=row>mat.getRowCount()? mat.getRowCount():row;
+		col=col>mat.getColCount()? mat.getColCount():col;
 		
 		//构建结果矩阵
 		this->mat=CMatrix(row,col);

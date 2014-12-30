@@ -721,43 +721,6 @@ CMatrix CMatrix::Convolution(CMatrix &nuclear,bool IgnoreBound/* =true */)
 	return result;
 }
 
-double CMatrix::Fitt_StraightLine(CMatrix &coe)
-{
-	//////////////////////////////////////////////////////////////////////////
-	//该方法采用间接平差原理，进行直线的拟合
-	//////////////////////////////////////////////////////////////////////////
-	//结果用于存储最终的中误差
-	double reuslt=0;
-	//获取x列
-	CMatrix x_row=this->getColAsCMatrix(0);
-	//获取x列
-	CMatrix y_row=this->getColAsCMatrix(1); 
-	//构建B矩阵，并存于x_row对象中
-	double* p=new double[x_row.getRowCount()];
-		for(int i=0;i<x_row.getRowCount();i++) p[i]=1;
-	x_row.AddCol(1,p,x_row.getRowCount());
-	
-	//构建Nbb矩阵 Nbb=t(B)*P*B;
-	CMatrix t_x_row(CMatrix::S_Transposition(x_row));
-	CMatrix NBB(t_x_row*x_row);
-	//构建W矩阵 W=t(B)*P*l;
-	CMatrix W(t_x_row*y_row);
-	try
-	{
-		//根据Nbb*coe=W公式，利用LU分解法，求解coe
-		coe=NBB.Slove(W,LU);
-		//根据误差方程v=B*coe-l，计算改正数向量
-		CMatrix V(x_row*coe-y_row);
-		//由改正数计算 改正数标准差
-		reuslt= (CMatrix::S_Transposition(V)*V)(0,0)/(this->getRowCount()-2);
-	}
-	catch (double)//当LU发生奇异时，捕获其异常
-	{
-		reuslt=-1;
-	}
-	return sqrt(reuslt);
-}
-
 
 //////////////////////////////////////////////////////////////////////////
 //运算符重载部分

@@ -65,7 +65,7 @@ protected:
 
 	
 public:	
-	double sum();
+
 	//////////////////////////////////////////////////////////////////////////
 	//构造函数部分
 	//////////////////////////////////////////////////////////////////////////
@@ -408,9 +408,28 @@ public:
 	//************************************
 	CMatrix Convolution(CMatrix &nuclear,bool IgnoreBound=true);
 
+	//************************************
+	// Method:    Fitt_StraightLine
+	// illustration_name: 直线拟合
+	// illustration_fuction: 在最小二乘准则下，完成散点的直线拟合
+	// Parameter: CMatrix & input_src 待拟合的散点 （n*2）
+	// Parameter: CMatrix & output_coe 拟合后的直线系数 (1*2)
+	// Returns double Rmse 拟合的中误差
+	// Other: src阵要求满秩。
+	//************************************
+	double Fitt_StraightLine(CMatrix &output_coe);
 
 
 
+
+
+	//************************************
+	// Method:    sum
+	// illustration_name: 元素求和
+	// illustration_fuction: 获得矩阵中所有元素的和
+	// Returns:   double 矩阵中所有元素的和
+	//************************************
+	double sum();
 
 
 	//************************************
